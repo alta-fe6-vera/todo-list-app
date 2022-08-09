@@ -6,7 +6,7 @@ import { TokenContext } from "../utils/context";
 import Detail from "../pages/Detail";
 import Home from "../pages/Home";
 
-axios.defaults.baseURL = "https://api.todoist.com/rest/v1/";
+axios.defaults.baseURL = "https://api.todoist.com/";
 
 const RoutesTea = () => {
   const [token, setToken] = useState(null);

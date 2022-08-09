@@ -16,13 +16,14 @@ const Home = (props) => {
   const [loading, setLoading] = useState(true);
   const [objSubmit, setObjSubmit] = useState("");
   const [content, setContent] = useState("");
+  const [completed, setCompleted] = useState("");
 
   useEffect(() => {
     fetchAllList();
   }, []);
 
   const fetchAllList = async () => {
-    apiRequest("tasks", "get", {})
+    apiRequest("rest/v1/tasks", "get", {})
       .then((res) => {
         setData(res);
       })
@@ -36,7 +37,7 @@ const Home = (props) => {
     for (const key in objSubmit) {
       formData.append(key, objSubmit[key]);
     }
-    apiRequest(`tasks/`, "post", objSubmit, "multipart/form-data")
+    apiRequest(`rest/v1/tasks/`, "post", objSubmit, "multipart/form-data")
       .then((res) => {
         alert("List Added");
         setObjSubmit({});
@@ -47,9 +48,21 @@ const Home = (props) => {
       })
       .finally(() => fetchAllList());
   };
+
+  const handleCompleted = (id) => {
+    axios
+
+      .post(`rest/v1/tasks/${id}/close`)
+      .then((res) => {
+        alert(`List Completed!`);
+      })
+      .catch((err) => alert(err.toString()))
+      .finally(() => setLoading(false));
+  };
+
   const handleDelete = (id) => {
     axios
-      .delete(`/tasks/${id}`)
+      .delete(`rest/v1/tasks/${id}`)
       .then((res) => {
         alert(`List Deleted!`);
         window.location.reload(true);
@@ -57,6 +70,7 @@ const Home = (props) => {
       .catch((err) => alert(err.toString()))
       .finally(() => setLoading(false));
   };
+
   const handleChange = (value, key) => {
     let temp = { ...objSubmit };
     temp[key] = value;
@@ -65,7 +79,7 @@ const Home = (props) => {
   const handleSearch = (event) => {
     if (event.keyCode === 13) {
       axios
-        .put(`/tasks/${event.target.value}`)
+        .put(`rest/v1/tasks/${event.target.value}`)
         .then((res) => {
           setData(res);
           console.log(res);
@@ -112,7 +126,15 @@ const Home = (props) => {
               </thead>
               <tbody className="bg-white text-start border-b-2 border-[#97b689]">
                 {data.map((item) => (
-                  <Td key={item.id} content={item.content} completed={item.completed === false ? "Not Completed" : "Completed"} onClickDel={() => handleDelete(item.id)} onClickEdit={() => navigate(`/tasks/${item.id}`)} />
+                  <Td
+                    key={item.id}
+                    content={item.content}
+                    completed={item.completed === false ? "Not Completed" : "Completed"}
+                    onClickDel={() => handleDelete(item.id)}
+                    onClickEdit={() => navigate(`/tasks/${item.id}`)}
+                    onClickCompleted={() => handleCompleted(item.id)}
+                    // onClickCompleted={item.completed === false ? setCompleted(true) : setCompleted(false)}
+                  />
                 ))}
               </tbody>
             </table>

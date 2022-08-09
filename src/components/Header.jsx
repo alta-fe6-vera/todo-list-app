@@ -16,7 +16,7 @@ const CustomHeader = (props) => {
           <FaCalendarAlt className="self-center mr-1 text-white" />
           <p className="self-center">HOME</p>
         </Link>
-        <label className="relative block ml-4 flex">
+        <label className="relative ml-4 flex">
           <span className="sr-only">Search</span>
           <span className="absolute inset-y-0 left-0 flex item-center">
             <svg className="h-4 w-4 fill-gray-50" viewBox="0 0 20 20"></svg>
