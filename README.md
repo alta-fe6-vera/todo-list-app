@@ -1,6 +1,6 @@
 <div align="center">
     <br>
-        <img src="./src/assets/tea_list.png" alt="QuMovie" width="100px"/>
+        <img src="./src/assets/tea_list.png" alt="Tea List" width="100px"/>
 
 # Tea List
 
@@ -8,6 +8,22 @@
 
 </div>
 <br>
+
+## Feature
+
+- Home <br>
+  The first display that you see is a list of all todo lists and form to add new todo list.
+
+- Add New Todo List <br>
+  Click and type todo list on input field add new todo list. <br>
+
+- Edit Todo List <br>
+  Click the Pencil icon on right of todo list to open page for edit todo list. And then do editing and save <br>
+
+- Delete Todo List <br>
+  Click the Red Cross icon on right of todo list to delete todo list.
+  <br>
+  <br>
 
 ## Language and Tools
 
@@ -29,7 +45,19 @@
 This project deployed in Vercel: https://todo-vera.vercel.app/
 <br>
 <br>
-<img src="./src/assets/tea_list_page.png" alt="Tea List"/>
+
+- Home
+  <img src="https://drive.google.com/uc?export=view&id=1_U6pp4lslldQLtBlT5HDpITfbby2zb8r" alt="Tea List"/>
+
+- Add New Todo List
+  <img src="https://drive.google.com/uc?export=view&id=1iZZuCD6XfuyXyWDvsUnzImbEBXWX2tGe" alt="Tea List"/>
+
+- Edit Todo List
+  <img src="https://drive.google.com/uc?export=view&id=1EksTv2lF_zNydmFNcN76Ve0Lm8FBWZbh" alt="Tea List"/>
+
+- Delete Todo List
+  <img src="https://drive.google.com/uc?export=view&id=1iIYtfjWFvhiDMQ3WHOvBpsMt4w-m19cc" alt="Tea List"/>
+
 <br>
 <br>
 
